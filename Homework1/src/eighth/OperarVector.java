@@ -1,7 +1,7 @@
 package eighth;
 
 import java.util.Arrays;
-import java.util.Scanner;
+import helpers.InputHelper;
 
 /* 8. Crear una clase denominada OperarVector que permita ingresar por teclado (Scanner) 5 notas de alumnos, las
 que serán almacenadas en un array de enteros. Calcular el promedio y determinar la mayor nota. El promedio
@@ -10,23 +10,10 @@ dicho resultado). Mostrar los elementos ingresados, separados por un tabulador. 
 mayor nota con el mensaje respectivo.  */
 public class OperarVector {
     public static void main(String[] args) {
-        int amountOfExams;
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Ingresa la cantidad de notas a calcular.. ");
-        amountOfExams = scanner.nextInt();
+        int amountOfExams = InputHelper.insertIntegerForKeyboard("Ingresa la cantidad de notas a calcular.. ");
         double[] exams = new double[amountOfExams];
-        Arrays.setAll(exams, index -> {
-            System.out.print("Ingresa la cantidad de nota de alumno " + (1 + index) + ": ");
-            return scanner.nextDouble();
-        });
-
-        System.out.println("Las notas ingresadas fueron");
-        for (double exam : exams) {
-            System.out.println(exam);
-        }
-        System.out.println("Las Mayor nota fue: " + String.format("%.2f", calculateMax(exams)));
-        System.out.println("El promedio total fue: " + String.format("%.2f", calculatePromedio(exams)));
-        scanner.close();
+        mapearArrayWithNotas(exams);
+        printResults(exams);
     }
 
     public static double calculatePromedio(double[] exams) {
@@ -35,6 +22,21 @@ public class OperarVector {
 
     public static double calculateMax(double[] exams) {
         return (Arrays.stream(exams).max().getAsDouble());
+    }
+
+    public static void mapearArrayWithNotas(double[] exams) {
+        Arrays.setAll(exams, index -> {
+            return InputHelper.insertDoubleForKeyboard("Ingresa la cantidad de nota de alumno " + (1 + index) + ": ");
+        });
+    }
+
+    public static void printResults(double[] exams) {
+        System.out.println("Las notas ingresadas fueron");
+        for (double exam : exams) {
+            System.out.println(exam);
+        }
+        System.out.println("Las Mayor nota fue: " + String.format("%.2f", calculateMax(exams)));
+        System.out.println("El promedio total fue: " + String.format("%.2f", calculatePromedio(exams)));
     }
 
 }
