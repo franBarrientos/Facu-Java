@@ -65,7 +65,7 @@ public class Rectangulo {
      * 
      * @return el area
      */
-    public double area() {
+    public double superficie() {
         return getAlto() * getAncho();
     }
 
@@ -76,10 +76,10 @@ public class Rectangulo {
      * Superficie: 20000.0 - Perímetro: 600.0
      * 
      */
-    public void mostrar() {
+    public void caracteristicas() {
         System.out.println("***** Rectangulo *****");
         System.out.println("Origen: "+getOrigen().coordenadas()+" - Alto: "+getAlto()+" - Ancho: "+getAncho());
-        System.out.println("Superficie: "+ area()+" - Perimetro: "+perimetro());
+        System.out.println("Superficie: "+ superficie()+" - Perimetro: "+perimetro());
     }
 
     /**
@@ -97,7 +97,7 @@ public class Rectangulo {
      * @return  rectangulo mayor
       */
     public Rectangulo elMayor(Rectangulo otroRectangulo){
-        return (this.area() > otroRectangulo.area()) ?
+        return (this.superficie() > otroRectangulo.superficie()) ?
             this 
             :
             otroRectangulo;

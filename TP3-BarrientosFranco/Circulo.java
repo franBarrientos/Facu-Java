@@ -61,7 +61,7 @@ public class Circulo {
         return (circulo.superficie() > this.superficie())? circulo : this ;
     }
 
-    public void mostrar(){
+    public void caracteristicas(){
         System.out.println("***** Circulo ******");
         System.out.println("Centro: "+ getCentro().coordenadas() +" -Radio: "+this.getRadio());
         System.out.println("Superficie: "+this.superficie()+" - Perimetro: "+this.perimetro());

@@ -6,7 +6,7 @@ public class CreaFigura {
                 new Random().nextDouble() * 100.0,
                 new Punto());
         circulo.desplazar(240, 230);
-        circulo.mostrar();
+        circulo.caracteristicas();
 
         Circulo circulo2 = new Circulo(
                 new Random().nextDouble(),
@@ -25,14 +25,14 @@ public class CreaFigura {
                 new Random().nextDouble() * 100.0,
                 new Random().nextDouble() * 100.0);
         rectangulo.desplazar(40, 20);
-        rectangulo.mostrar();
+        rectangulo.caracteristicas();
 
         Rectangulo rectangulo2 = new Rectangulo(
                 new Punto(7.4, 4.5),
                 new Random().nextDouble() * 100.0,
                 new Random().nextDouble() * 100.0);
 
-        rectangulo.elMayor(rectangulo2).mostrar();
+        rectangulo.elMayor(rectangulo2).caracteristicas();
         System.out.println(rectangulo.distanciaA(rectangulo2));
     }
 }
