@@ -9,9 +9,9 @@ import java.util.Calendar;
  */
 public class Persona {
     private int nroDni;
-    private String nombre = "";
-    private String apellido = "";
-    private int anioNacimiento;
+    private String nombre;
+    private String apellido;
+    private Calendar fechaNacimiento;
 
     /**
      * Constructor de la clase Persona, instancia un objeto Persona.
@@ -21,11 +21,26 @@ public class Persona {
      * @param apellido       apellido de la persona.
      * @param anioNacimiento año de nacimiento de la persona.
      */
-    public Persona(int nroDni, String nombre, String apellido, int anioNacimiento) {
+    public Persona(int nroDni, String nombre, String apellido, int p_anio) {
         setNroDni(nroDni);
         setNombre(nombre);
         setApellido(apellido);
-        setAnioNacimiento(anioNacimiento);
+        setAnioNacimiento(p_anio);
+    }
+
+    /**
+     * Constructor de la clase Persona, instancia un objeto Persona.
+     * 
+     * @param nroDni         número de DNI de la persona.
+     * @param nombre         nombre de la persona.
+     * @param apellido       apellido de la persona.
+     * @param anioNacimiento año de nacimiento de la persona.
+     */
+    public Persona(int nroDni, String nombre, String apellido, Calendar p_fecha) {
+        setNroDni(nroDni);
+        setNombre(nombre);
+        setApellido(apellido);
+        setFechaNacimiento(p_fecha);
     }
 
     public int getNroDni() {
@@ -53,11 +68,24 @@ public class Persona {
     }
 
     public int getAnioNacimiento() {
-        return this.anioNacimiento;
+        return this.getFechaNacimiento().get(Calendar.YEAR);
     }
 
-    private void setAnioNacimiento(int anioNacimiento) {
-        this.anioNacimiento = anioNacimiento;
+    private void setAnioNacimiento(int p_anio) {
+        if (this.getFechaNacimiento() != null) {
+            this.fechaNacimiento.set(Calendar.YEAR, p_anio);
+        } else {
+            this.fechaNacimiento = Calendar.getInstance();
+            this.fechaNacimiento.set(Calendar.YEAR, p_anio);
+        }
+    }
+
+    public Calendar getFechaNacimiento() {
+        return this.fechaNacimiento;
+    }
+
+    private void setFechaNacimiento(Calendar anioNacimiento) {
+        this.fechaNacimiento = anioNacimiento;
     }
 
     /**
@@ -76,6 +104,12 @@ public class Persona {
     public void mostrar() {
         System.out.println("Nombre y Apellido: " + this.nombre + " " + this.getApellido());
         System.out.println("DNI: " + this.getNroDni() + " Edad: " + this.edad() + " años");
+    }
+
+    public boolean esCumpleaños() {
+        boolean dayCondition = (Calendar.getInstance().get(Calendar.DAY_OF_MONTH) == this.getFechaNacimiento().get(Calendar.DAY_OF_MONTH));
+        boolean monthCondition = (Calendar.getInstance().get(Calendar.MONTH) == this.getFechaNacimiento().get(Calendar.MONTH));
+        return (dayCondition && monthCondition);
     }
 
 }
