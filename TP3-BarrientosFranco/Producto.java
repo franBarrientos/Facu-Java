@@ -14,21 +14,21 @@ public class Producto {
 
     public Producto(int codigo, String rubro, String descripcion, double costo, double porcPtoRepo, int existMinima,
             Laboratorio Laboratorio) {
-        setCodigo(codigo);
-        setRubro(rubro);
-        setDescripcion(descripcion);
-        setCosto(costo);
-        setPorcPtoRepo(porcPtoRepo);
-        setExistMinima(existMinima);
-        setLaboratorio(Laboratorio);
+        this.setCodigo(codigo);
+        this.setRubro(rubro);
+        this.setDescripcion(descripcion);
+        this.setCosto(costo);
+        this.setPorcPtoRepo(porcPtoRepo);
+        this.setExistMinima(existMinima);
+        this.setLaboratorio(Laboratorio);
     }
 
     public Producto(int codigo, String rubro, String descripcion, double costo, Laboratorio Laboratorio) {
-        setCodigo(codigo);
-        setRubro(rubro);
-        setDescripcion(descripcion);
-        setCosto(costo);
-        setLaboratorio(Laboratorio);
+        this.setCodigo(codigo);
+        this.setRubro(rubro);
+        this.setDescripcion(descripcion);
+        this.setCosto(costo);
+        this.setLaboratorio(Laboratorio);
     }
 
     private int getCodigo() {
@@ -101,7 +101,7 @@ public class Producto {
      * @param cantidad cantidad a actualizar de stock
      */
     public void ajuste(int cantidad) {
-        setStock(cantidad);
+        this.setStock(cantidad);
     }
 
     /**
@@ -111,7 +111,7 @@ public class Producto {
      * @return precio de lista
      */
     public double precioLista() {
-        return (getCosto() + ((getCosto() * 12) / 100));
+        return (this.getCosto() + ((this.getCosto() * 12) / 100));
     }
 
     /**
@@ -136,7 +136,7 @@ public class Producto {
      * @return precio de lista
      */
     public double precioContado() {
-        return (precioLista() - ((precioLista() * 5) / 100));
+        return (this.precioLista() - ((this.precioLista() * 5) / 100));
     }
 
     /**
@@ -146,7 +146,7 @@ public class Producto {
      * @return precio de lista
      */
     public double stockValorizado() {
-        var stockAPrecioCosto = (getCosto() * getStock());
+        var stockAPrecioCosto = (this.getCosto() * this.getStock());
         return (stockAPrecioCosto + ((stockAPrecioCosto * 12) / 100));
     }
 
@@ -156,7 +156,7 @@ public class Producto {
      * @param porcentajePtoReposicion porcentaje de punto reposicion a actualizar
      */
     public void ajustarPtoRepo(double porcentajePtoReposicion) {
-        setPorcPtoRepo(porcPtoRepo);
+        this.setPorcPtoRepo(porcPtoRepo);
     }
 
     /**
@@ -165,7 +165,7 @@ public class Producto {
      * @param existMinima cantidad de existencia minima a actualizar
      */
     public void ajustarExistMin(int existMinima) {
-        setExistMinima(existMinima);
+        this.setExistMinima(existMinima);
     }
 
     /**
@@ -181,11 +181,11 @@ public class Producto {
         System.out.println("Laboratorio: " + laboratorio.getNombre());
         System.out.println("Domicilio: " + laboratorio.getDomicilio() + " - Telefono: " + laboratorio.getTelefono());
         System.out.println("");
-        System.out.println("Rubro: " + getRubro());
-        System.out.println("Descripcion :" + getDescripcion());
-        System.out.println("Precio Costo:  $" + String.format("%.2f", getCosto()));
+        System.out.println("Rubro: " + this.getRubro());
+        System.out.println("Descripcion :" + this.getDescripcion());
+        System.out.println("Precio Costo:  $" + String.format("%.2f", this.getCosto()));
         System.out
-                .println("Stock: " + getStock() + " - Stock Valorizado: $" + String.format("%.2f", stockValorizado()));
+                .println("Stock: " + this.getStock() + " - Stock Valorizado: $" + String.format("%.2f", this.stockValorizado()));
     }
 
     /**
@@ -196,8 +196,8 @@ public class Producto {
      * @return "Jabón Deluxe 11.20 10.64"
      */
     public String mostrarLinea() {
-        return getDescripcion() + " " + String.format("%.2f", precioLista()) + " "
-                + String.format("%.2f", precioContado());
+        return this.getDescripcion() + " " + String.format("%.2f", this.precioLista()) + " "
+                + String.format("%.2f", this.precioContado());
     }
 
 }

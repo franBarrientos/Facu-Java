@@ -7,14 +7,14 @@ public class Rectangulo {
     private double alto;
 
     public Rectangulo(double ancho, double alto) {
-        setAncho(ancho);
-        setAlto(alto);
+        this.setAncho(ancho);
+        this.setAlto(alto);
     }
 
     public Rectangulo(Punto origen, double ancho, double alto) {
-        setOrigen(origen);
-        setAncho(ancho);
-        setAlto(alto);
+        this.setOrigen(origen);
+        this.setAncho(ancho);
+        this.setAlto(alto);
     }
 
     public Punto getOrigen() {
@@ -48,7 +48,7 @@ public class Rectangulo {
      * @param y incremento y
      */
     public void desplazar(double x, double y) {
-        getOrigen().desplazar(x, y);
+        this.getOrigen().desplazar(x, y);
     }
 
     /**
@@ -57,7 +57,7 @@ public class Rectangulo {
      * @return perimetro
      */
     public double perimetro() {
-        return (getAncho() + getAlto()) * 2;
+        return (this.getAncho() + this.getAlto()) * 2;
     }
 
     /**
@@ -66,7 +66,7 @@ public class Rectangulo {
      * @return el area
      */
     public double superficie() {
-        return getAlto() * getAncho();
+        return this.getAlto() * this.getAncho();
     }
 
     /**
@@ -78,8 +78,8 @@ public class Rectangulo {
      */
     public void caracteristicas() {
         System.out.println("***** Rectangulo *****");
-        System.out.println("Origen: "+getOrigen().coordenadas()+" - Alto: "+getAlto()+" - Ancho: "+getAncho());
-        System.out.println("Superficie: "+ superficie()+" - Perimetro: "+perimetro());
+        System.out.println("Origen: "+this.getOrigen().coordenadas()+" - Alto: "+this.getAlto()+" - Ancho: "+this.getAncho());
+        System.out.println("Superficie: "+ this.superficie()+" - Perimetro: "+this.perimetro());
     }
 
     /**

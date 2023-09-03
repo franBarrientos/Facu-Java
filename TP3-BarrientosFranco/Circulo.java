@@ -1,70 +1,111 @@
 /**
- * Clase que representa a un circulo
-  */
+ * Clase que representa a un círculo.
+ */
 public class Circulo {
-    private double radio; 
-    private Punto centro = new Punto(); //inicalizo para que prevenir errores
+    private double radio;
+    private Punto centro; // Inicializo para prevenir errores
 
-
-    public Circulo(double radio, Punto centro) {
-        setRadio(radio);
-        setCentro(centro);
+    /**
+     * Constructor que crea un círculo con el radio y centro especificados.
+     *
+     * @param p_radio Radio del círculo.
+     * @param p_centro Centro del círculo.
+     */
+    public Circulo(double p_radio, Punto p_centro) {
+        this.setRadio(p_radio);
+        this.setCentro(p_centro);
     }
 
-    public Circulo(){
-        setRadio(0);
+    /**
+     * Constructor por defecto que crea un círculo con radio cero.
+     */
+    public Circulo() {
+        this.setRadio(0);
     }
 
-
+    /**
+     * Obtiene el radio del círculo.
+     *
+     * @return El radio del círculo.
+     */
     public double getRadio() {
         return this.radio;
     }
 
-    private void setRadio(double radio) {
-        this.radio = radio;
+    private void setRadio(double p_radio) {
+        this.radio = p_radio;
     }
 
+    /**
+     * Obtiene el centro del círculo.
+     *
+     * @return El centro del círculo.
+     */
     public Punto getCentro() {
         return this.centro;
     }
 
-    private void setCentro(Punto centro) {
-        this.centro = centro;
+    private void setCentro(Punto p_centro) {
+        this.centro = p_centro;
     }
 
     /**
-     * Desplaza la posicion del centro sin afectar a su dimension
-     * @param x incremento x del centro
-     * @param y incremento y del centro
-      */
-    public void desplazar(double x, double y){
-        this.centro.desplazar(x, y);
+     * Desplaza la posición del centro del círculo sin afectar su radio.
+     *
+     * @param p_x Incremento en la coordenada x del centro.
+     * @param p_y Incremento en la coordenada y del centro.
+     */
+    public void desplazar(double p_x, double p_y) {
+        this.centro.desplazar(p_x, p_y);
     }
 
-
-    public double superficie(){
-        return Math.PI * radio;
+    /**
+     * Calcula la superficie del círculo.
+     *
+     * @return La superficie del círculo.
+     */
+    public double superficie() {
+        return Math.PI * this.getRadio();
     }
 
-    public double perimetro(){
-        return superficie()*2;
+    /**
+     * Calcula el perímetro del círculo.
+     *
+     * @return El perímetro del círculo.
+     */
+    public double perimetro() {
+        return this.superficie() * 2;
     }
 
-    public double distanciaA(Circulo circulo){
+    /**
+     * Calcula la distancia entre el centro de este círculo y el centro de otro círculo.
+     *
+     * @param p_circulo Otro círculo.
+     * @return La distancia entre los centros de los círculos.
+     */
+    public double distanciaA(Circulo p_circulo) {
         return Math.sqrt(
-            Math.pow((circulo.getCentro().getX() - this.centro.getX()), 2)
+            Math.pow((p_circulo.getCentro().getX() - this.centro.getX()), 2)
             +
-            Math.pow((circulo.getCentro().getY() - this.centro.getY()), 2));
+            Math.pow((p_circulo.getCentro().getY() - this.centro.getY()), 2));
     }
 
-    public Circulo elMayor(Circulo circulo){
-        return (circulo.superficie() > this.superficie())? circulo : this ;
+    /**
+     * Determina cuál de dos círculos tiene mayor superficie.
+     *
+     * @param p_circulo Otro círculo a comparar.
+     * @return El círculo con mayor superficie, o este círculo si tienen igual superficie.
+     */
+    public Circulo elMayor(Circulo p_circulo) {
+        return (p_circulo.superficie() > this.superficie()) ? p_circulo : this;
     }
 
-    public void caracteristicas(){
-        System.out.println("***** Circulo ******");
-        System.out.println("Centro: "+ getCentro().coordenadas() +" -Radio: "+this.getRadio());
-        System.out.println("Superficie: "+this.superficie()+" - Perimetro: "+this.perimetro());
+    /**
+     * Imprime las características del círculo, incluyendo centro, radio, superficie y perímetro.
+     */
+    public void caracteristicas() {
+        System.out.println("***** Círculo ******");
+        System.out.println("Centro: " + this.getCentro().coordenadas() + " - Radio: " + this.getRadio());
+        System.out.println("Superficie: " + this.superficie() + " - Perímetro: " + this.perimetro());
     }
-    
 }

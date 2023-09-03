@@ -5,7 +5,7 @@
 public class CuentaCorriente {
     private int nroCuenta;
     private double saldo;
-    private double limiteDescubierto = 500;
+    private double limiteDescubierto;
     private Persona titular;
 
     /**
@@ -16,8 +16,9 @@ public class CuentaCorriente {
      * @param titular   Persona titular de la cuenta corriente.
      */
     public CuentaCorriente(int nroCuenta, Persona titular) {
-        setNroCuenta(nroCuenta);
-        setTitular(titular);
+        this.setNroCuenta(nroCuenta);
+        this.setTitular(titular);
+        this.setLimiteDescubierto(500l);
     }
 
     /**
@@ -29,9 +30,10 @@ public class CuentaCorriente {
      * @param saldo     Saldo inicial de la cuenta corriente.
      */
     public CuentaCorriente(int nroCuenta, Persona titular, double saldo) {
-        setNroCuenta(nroCuenta);
-        setTitular(titular);
-        setSaldo(saldo);
+        this.setNroCuenta(nroCuenta);
+        this.setTitular(titular);
+        this.setSaldo(saldo);
+        this.setLimiteDescubierto(500l);
     }
 
     public int getNroCuenta() {
@@ -74,7 +76,7 @@ public class CuentaCorriente {
      * @return true si es posible realizar la extracción, false en caso contrario.
      */
     private boolean puedoExtraer(double importe) {
-        return !(importe > (getSaldo() + getLimiteDescubierto()));
+        return !(importe > (this.getSaldo() + this.getLimiteDescubierto()));
     }
 
     /**
@@ -83,7 +85,7 @@ public class CuentaCorriente {
      * @param importe La cantidad de dinero a extraer.
      */
     private void extraccion(double importe) {
-        setSaldo(getSaldo() - importe);
+        this.setSaldo(this.getSaldo() - importe);
     }
 
     /**
@@ -93,9 +95,9 @@ public class CuentaCorriente {
      * @param importe La cantidad de dinero a extraer.
      */
     public void extraer(double importe) {
-        if (puedoExtraer(importe)) {
-            extraccion(importe);
-            mostrar();
+        if (this.puedoExtraer(importe)) {
+            this.extraccion(importe);
+            this.mostrar();
         } else {
             System.out.println("El importe de extraccion sobrepasa el limite de descubierto!");
         }
@@ -107,7 +109,7 @@ public class CuentaCorriente {
      * @param importe La cantidad de dinero a depositar.
      */
     public void depositar(double importe) {
-        setSaldo(getSaldo() + importe);
+        this.setSaldo(this.getSaldo() + importe);
     }
 
     /**
@@ -116,9 +118,9 @@ public class CuentaCorriente {
      */
     public void mostrar() {
         System.out.println("- Cuenta Corriente -");
-        System.out.println("Nro. Cuenta: " + getNroCuenta() + " - Saldo: " + String.format("%.2f", getSaldo()));
-        System.out.println("Titular: " + titular.getNombre() + " " + titular.getApellido());
-        System.out.println("Descubierto: " + String.format("%.2f", getLimiteDescubierto()));
+        System.out.println("Nro. Cuenta: " + this.getNroCuenta() + " - Saldo: " + String.format("%.2f", this.getSaldo()));
+        System.out.println("Titular: " + getTitular().getNombre() + " " + getTitular().getApellido());
+        System.out.println("Descubierto: " + String.format("%.2f", this.getLimiteDescubierto()));
     }
 
 }

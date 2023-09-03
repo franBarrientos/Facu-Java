@@ -7,12 +7,13 @@ import java.util.Calendar;
  * @author Barrientos Franco y Cabrera Romani Lucas
  * @version V0.01
  */
-public class Empleado {
+public class EmpleadoConJefe {
     private long cuil;
     private String apellido;
     private String nombre;
     private double sueldoBasico;
     private Calendar fechaIngreso;
+    private EmpleadoConJefe jefe;
 
     /**
      * Constructor de la clase Empleado, instancia un objeto Empleado
@@ -23,7 +24,7 @@ public class Empleado {
      * @param p_sueldoBasico sueldo basico del empleado
      * @param p_anioIngreso  año de ingreso del empleado
      */
-    public Empleado(long p_cuil, String p_apellido, String p_nombre, double p_sueldoBasico, int p_anioIngreso) {
+    public EmpleadoConJefe(long p_cuil, String p_apellido, String p_nombre, double p_sueldoBasico, int p_anioIngreso) {
         this.setCuil(p_cuil);
         this.setApellido(p_apellido);
         this.setNombre(p_nombre);
@@ -32,7 +33,7 @@ public class Empleado {
     }
 
     /**
-     * Constructor de la clase Empleado, instancia un objeto Empleado
+     * Constructor de la clase EmpleadoConJefe, instancia un objeto EmpleadoConJefe
      * 
      * @param p_cuil         nro de cuill del empleado
      * @param p_apellido     apellido del empleado
@@ -40,12 +41,30 @@ public class Empleado {
      * @param p_sueldoBasico sueldo basico del empleado
      * @param p_fechaIngreso fecha de ingreso del empleado
      */
-    public Empleado(long p_cuil, String p_apellido, String p_nombre, double p_sueldoBasico, Calendar p_fechaIngreso) {
+    public EmpleadoConJefe(long p_cuil, String p_apellido, String p_nombre, double p_sueldoBasico, Calendar p_fechaIngreso) {
         this.setCuil(p_cuil);
         this.setApellido(p_apellido);
         this.setNombre(p_nombre);
         this.setSueldoBasico(p_sueldoBasico);
         this.setFechaIngreso(p_fechaIngreso);
+    }
+    /**
+     * Constructor de la clase EmpleadoConJefe, instancia un objeto EmpleadoConJefe
+     * 
+     * @param p_cuil         nro de cuill del empleado
+     * @param p_apellido     apellido del empleado
+     * @param p_nombre       nombre del empleado
+     * @param p_sueldoBasico sueldo basico del empleado
+     * @param p_fechaIngreso fecha de ingreso del empleado
+     * @param p_jefe jefe del empleado
+     */
+    public EmpleadoConJefe(long p_cuil, String p_apellido, String p_nombre, double p_sueldoBasico, Calendar p_fechaIngreso, EmpleadoConJefe p_jefe) {
+        this.setCuil(p_cuil);
+        this.setApellido(p_apellido);
+        this.setNombre(p_nombre);
+        this.setSueldoBasico(p_sueldoBasico);
+        this.setFechaIngreso(p_fechaIngreso);
+        this.setJefe(p_jefe);
     }
 
     public long getCuil() {
@@ -100,6 +119,16 @@ public class Empleado {
     private void setFechaIngreso(Calendar p_fechaIngreso) {
         this.fechaIngreso = p_fechaIngreso;
     }
+
+    
+    public EmpleadoConJefe getJefe() {
+        return this.jefe;
+    }
+
+    public void setJefe(EmpleadoConJefe jefe) {
+        this.jefe = jefe;
+    }
+
 
     /**
      * Calcula la antiguedad del empleado
@@ -163,6 +192,11 @@ public class Empleado {
         System.out.println("Nombre y Apellido: " + this.nomYApe());
         System.out.println("CUIL : " + this.getCuil() + " Antigüedad: " + this.antiguedad() + " años de servicio");
         System.out.println("Sueldo Neto: $" + String.format("%.2f", this.sueldoNeto()));
+        if(this.getJefe() != null){
+            System.out.println("Responde a: "+ this.getJefe().apeYNom());
+        }else{
+            System.out.println("GERENTE GENERAL");
+        }
     }
 
     /**

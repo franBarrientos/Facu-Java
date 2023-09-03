@@ -8,9 +8,9 @@
  * @version V0.01
  */
 public class Laboratorio {
-    private String nombre = "";
-    private String domicilio = "";
-    private String telefono = "";
+    private String nombre;
+    private String domicilio;
+    private String telefono;
     private int compraMinima;
     private int diaEntrega;
 
@@ -18,74 +18,74 @@ public class Laboratorio {
      * Constructor de la clase Laboratorio, instancia un objeto Laboratorio con día
      * de entrega.
      * 
-     * @param nombre       nombre del laboratorio.
-     * @param domicilio    domicilio del laboratorio.
-     * @param telefono     teléfono del laboratorio.
-     * @param compraMinima compra mínima del laboratorio.
-     * @param diaEntrega   día de entrega del laboratorio.
+     * @param p_nombre       Nombre del laboratorio.
+     * @param p_domicilio    Domicilio del laboratorio.
+     * @param p_telefono     Teléfono del laboratorio.
+     * @param p_compraMinima Compra mínima del laboratorio.
+     * @param p_diaEntrega   Día de entrega del laboratorio.
      */
-    public Laboratorio(String nombre, String domicilio, String telefono, int compraMinima, int diaEntrega) {
-        setNombre(nombre);
-        setDomicilio(domicilio);
-        setTelefono(telefono);
-        setCompraMinima(compraMinima);
-        setDiaEntrega(diaEntrega);
+    public Laboratorio(String p_nombre, String p_domicilio, String p_telefono, int p_compraMinima, int p_diaEntrega) {
+        this.setNombre(p_nombre);
+        this.setDomicilio(p_domicilio);
+        this.setTelefono(p_telefono);
+        this.setCompraMinima(p_compraMinima);
+        this.setDiaEntrega(p_diaEntrega);
     }
 
     /**
      * Constructor de la clase Laboratorio, instancia un objeto Laboratorio sin día
      * de entrega.
      * 
-     * @param nombre       nombre del laboratorio.
-     * @param domicilio    domicilio del laboratorio.
-     * @param telefono     teléfono del laboratorio.
-     * @param compraMinima compra mínima del laboratorio.
+     * @param p_nombre       Nombre del laboratorio.
+     * @param p_domicilio    Domicilio del laboratorio.
+     * @param p_telefono     Teléfono del laboratorio.
+     * @param p_compraMinima Compra mínima del laboratorio.
      */
-    public Laboratorio(String nombre, String domicilio, String telefono, int compraMinima) {
-        setNombre(nombre);
-        setDomicilio(domicilio);
-        setTelefono(telefono);
-        setCompraMinima(compraMinima);
+    public Laboratorio(String p_nombre, String p_domicilio, String p_telefono, int p_compraMinima) {
+        this.setNombre(p_nombre);
+        this.setDomicilio(p_domicilio);
+        this.setTelefono(p_telefono);
+        this.setCompraMinima(p_compraMinima);
     }
 
     public String getNombre() {
         return this.nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre(String p_nombre) {
+        this.nombre = p_nombre;
     }
 
     public String getDomicilio() {
         return this.domicilio;
     }
 
-    public void setDomicilio(String domicilio) {
-        this.domicilio = domicilio;
+    public void setDomicilio(String p_domicilio) {
+        this.domicilio = p_domicilio;
     }
 
     public String getTelefono() {
         return this.telefono;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setTelefono(String p_telefono) {
+        this.telefono = p_telefono;
     }
 
     public int getCompraMinima() {
         return this.compraMinima;
     }
 
-    public void setCompraMinima(int compraMinima) {
-        this.compraMinima = compraMinima;
+    public void setCompraMinima(int p_compraMinima) {
+        this.compraMinima = p_compraMinima;
     }
 
     public int getDiaEntrega() {
         return this.diaEntrega;
     }
 
-    public void setDiaEntrega(int diaEntrega) {
-        this.diaEntrega = diaEntrega;
+    public void setDiaEntrega(int p_diaEntrega) {
+        this.diaEntrega = p_diaEntrega;
     }
 
     /**

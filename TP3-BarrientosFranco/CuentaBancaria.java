@@ -1,69 +1,69 @@
 /**
  * Clase que modela a una cuenta bancaria y a sus operaciones depositar y
- * extraer
+ * extraer.
  */
 public class CuentaBancaria {
     private int nroCuenta;
     private double saldo;
     private Persona titular;
 
-    public CuentaBancaria(int nroCuenta, double saldo, Persona titular) {
-        setNroCuenta(nroCuenta);
-        setSaldo(saldo);
-        setTitular(titular);
+    public CuentaBancaria(int p_nroCuenta, double p_saldo, Persona p_titular) {
+        this.setNroCuenta(p_nroCuenta);
+        this.setSaldo(p_saldo);
+        this.setTitular(p_titular);
     }
 
-    public CuentaBancaria(int nroCuenta, Persona titular) {
-        setNroCuenta(nroCuenta);
-        setTitular(titular);
+    public CuentaBancaria(int p_nroCuenta, Persona p_titular) {
+        this.setNroCuenta(p_nroCuenta);
+        this.setTitular(p_titular);
     }
 
     private int getNroCuenta() {
         return this.nroCuenta;
     }
 
-    private void setNroCuenta(int nroCuenta) {
-        this.nroCuenta = nroCuenta;
+    private void setNroCuenta(int p_nroCuenta) {
+        this.nroCuenta = p_nroCuenta;
     }
 
     private double getSaldo() {
         return this.saldo;
     }
 
-    private void setSaldo(double saldo) {
-        this.saldo = saldo;
+    private void setSaldo(double p_saldo) {
+        this.saldo = p_saldo;
     }
 
     private Persona getTitular() {
         return this.titular;
     }
 
-    private void setTitular(Persona titular) {
-        this.titular = titular;
+    private void setTitular(Persona p_titular) {
+        this.titular = p_titular;
     }
 
     /**
      * Incrementa el balance actual de la cuenta con el importe pasado como
-     * parametro
+     * parametro.
      * 
-     * @param importe importe a incrementar
-     * @return importe actualizado
+     * @param p_importe Importe a incrementar.
+     * @return Importe actualizado.
      */
-    public double depositar(double importe) {
-        setSaldo(getSaldo() + importe);
-        return getSaldo();
+    public double depositar(double p_importe) {
+        this.setSaldo(this.getSaldo() + p_importe);
+        return this.getSaldo();
     }
 
     /**
      * Decrementa el balance actual de la cuenta con el importe pasado como
-     * parametro
+     * parametro.
      * 
-     * @param importe importe a decrementar
-     * @return importe actualizado
+     * @param p_importe Importe a decrementar.
+     * @return Importe actualizado.
      */
-    public double extraer(double importe) {
-        setSaldo(getSaldo() - importe);
-        return getSaldo();
+    public double extraer(double p_importe) {
+        this.setSaldo(this.getSaldo() - p_importe);
+        return this.getSaldo();
     }
 
     /**
@@ -74,19 +74,17 @@ public class CuentaBancaria {
      */
     public void mostrar() {
         System.out.println("- Cuenta Bancaria -");
-        System.out.println("Titular: "+titular.getNombre()+ " "+ titular.getApellido()+" ("+titular.edad() + " años)");
-        System.out.println("Saldo: "+ String.format("%.2f",getSaldo()));
+        System.out.println("Titular: " + this.titular.getNombre() + " " + this.titular.getApellido() + " (" + this.titular.edad() + " años)");
+        System.out.println("Saldo: " + String.format("%.2f", this.getSaldo()));
     }
-
 
     /**
-     * Retorna un string de la concatenacion de numero de cuenta, titular y saldo, de la siguiente manera :
+     * Retorna un string de la concatenación de número de cuenta, titular y saldo,
+     * de la siguiente manera:
      * 1249 Juan Perez 1500.0
-      */
+     */
     @Override
     public String toString() {
-        return getNroCuenta()+" "+titular.getNombre()+" "+titular.getApellido()+"       "+String.format("%.2f",getSaldo());
+        return this.getNroCuenta() + " " + this.titular.getNombre() + " " + this.titular.getApellido() + "       " + String.format("%.2f", this.getSaldo());
     }
-
-
 }

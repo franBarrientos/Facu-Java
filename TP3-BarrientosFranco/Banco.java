@@ -1,4 +1,3 @@
-import java.time.Month;
 import java.util.Calendar;
 
 /**
@@ -32,7 +31,7 @@ public class Banco {
 
 
         Calendar fecha = Calendar.getInstance();
-        fecha.set(2003, 7, 24);
+        fecha.set(2003, 7, 28);
 
         Persona franco2 = new Persona(45645852, "fran2co", "barri2entos", fecha);
         franco2.mostrar(); 
