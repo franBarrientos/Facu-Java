@@ -1,6 +1,8 @@
 /**
  * Clase que modela a una cuenta bancaria y a sus operaciones depositar y
  * extraer.
+ * @author Barrientos Franco
+ * @version 1.0
  */
 public class CuentaBancaria {
     private int nroCuenta;
@@ -18,7 +20,7 @@ public class CuentaBancaria {
         this.setTitular(p_titular);
     }
 
-    private int getNroCuenta() {
+    public int getNroCuenta() {
         return this.nroCuenta;
     }
 
@@ -26,7 +28,7 @@ public class CuentaBancaria {
         this.nroCuenta = p_nroCuenta;
     }
 
-    private double getSaldo() {
+    public double getSaldo() {
         return this.saldo;
     }
 
@@ -34,7 +36,7 @@ public class CuentaBancaria {
         this.saldo = p_saldo;
     }
 
-    private Persona getTitular() {
+    public Persona getTitular() {
         return this.titular;
     }
 

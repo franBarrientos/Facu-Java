@@ -1,9 +1,11 @@
 /**
  * Clase que representa a un círculo.
+ * @author Barrientos Franco
+ * @version 1.0
  */
 public class Circulo {
     private double radio;
-    private Punto centro; // Inicializo para prevenir errores
+    private Punto centro;
 
     /**
      * Constructor que crea un círculo con el radio y centro especificados.

@@ -3,7 +3,7 @@ import java.util.Calendar;
 /**
  * Clase que representa a un empleado observado desde lo laboral, con sus datos
  * personales y sueldo.
- * 
+ *
  * @author Barrientos Franco y Cabrera Romani Lucas
  * @version V0.01
  */
@@ -17,7 +17,7 @@ public class EmpleadoConJefe {
 
     /**
      * Constructor de la clase Empleado, instancia un objeto Empleado
-     * 
+     *
      * @param p_cuil         nro de cuill del empleado
      * @param p_apellido     apellido del empleado
      * @param p_nombre       nombre del empleado
@@ -34,7 +34,7 @@ public class EmpleadoConJefe {
 
     /**
      * Constructor de la clase EmpleadoConJefe, instancia un objeto EmpleadoConJefe
-     * 
+     *
      * @param p_cuil         nro de cuill del empleado
      * @param p_apellido     apellido del empleado
      * @param p_nombre       nombre del empleado
@@ -48,15 +48,16 @@ public class EmpleadoConJefe {
         this.setSueldoBasico(p_sueldoBasico);
         this.setFechaIngreso(p_fechaIngreso);
     }
+
     /**
      * Constructor de la clase EmpleadoConJefe, instancia un objeto EmpleadoConJefe
-     * 
+     *
      * @param p_cuil         nro de cuill del empleado
      * @param p_apellido     apellido del empleado
      * @param p_nombre       nombre del empleado
      * @param p_sueldoBasico sueldo basico del empleado
      * @param p_fechaIngreso fecha de ingreso del empleado
-     * @param p_jefe jefe del empleado
+     * @param p_jefe         jefe del empleado
      */
     public EmpleadoConJefe(long p_cuil, String p_apellido, String p_nombre, double p_sueldoBasico, Calendar p_fechaIngreso, EmpleadoConJefe p_jefe) {
         this.setCuil(p_cuil);
@@ -120,7 +121,7 @@ public class EmpleadoConJefe {
         this.fechaIngreso = p_fechaIngreso;
     }
 
-    
+
     public EmpleadoConJefe getJefe() {
         return this.jefe;
     }
@@ -132,7 +133,7 @@ public class EmpleadoConJefe {
 
     /**
      * Calcula la antiguedad del empleado
-     * 
+     *
      * @return la cantidad de años
      */
     public int antiguedad() {
@@ -142,7 +143,7 @@ public class EmpleadoConJefe {
     /**
      * calcula el monto a descontar por empleado que es 2% del sueldo basico + el
      * seguro de vida
-     * 
+     *
      * @return monto a descontar
      */
     private double descuento() {
@@ -153,7 +154,7 @@ public class EmpleadoConJefe {
      * calcula la asignacion que se realiza sobre el sueldo basico, en base a la
      * antiguedad:
      * < 2 años : 2% || >= 2 y < 10 : 4% || >= 10 : 6%
-     * 
+     *
      * @return el monto adicional
      */
     private double adicional() {
@@ -169,7 +170,7 @@ public class EmpleadoConJefe {
     /**
      * calcula el sueldo neto del empleado, descontando seguro de vida etc , y
      * adicionando lo asignado por la antiguedad.
-     * 
+     *
      * @return sueldo neto
      */
     public double sueldoNeto() {
@@ -179,31 +180,28 @@ public class EmpleadoConJefe {
     /**
      * Muestra en consola los datos del empleado, su antiguedad y su sueldo neto.
      * Ejemplo: <blockquote>
-     * 
+     *
      * <pre>
      *  Nombre y Apellido: Juan Perez
-        CUIL: 20351234385 Antigüedad: 22 años de servicio
-        Sueldo Neto: $ 300000.00
+     * CUIL: 20351234385 Antigüedad: 22 años de servicio
+     * Sueldo Neto: $ 300000.00
      * </pre>
-     * 
+     *
      * </blockquote>
      */
     public void mostrar() {
         System.out.println("Nombre y Apellido: " + this.nomYApe());
         System.out.println("CUIL : " + this.getCuil() + " Antigüedad: " + this.antiguedad() + " años de servicio");
         System.out.println("Sueldo Neto: $" + String.format("%.2f", this.sueldoNeto()));
-        if(this.getJefe() != null){
-            System.out.println("Responde a: "+ this.getJefe().apeYNom());
-        }else{
-            System.out.println("GERENTE GENERAL");
-        }
+        System.out.println(
+                this.getJefe() != null ? "Responde a: " + this.getJefe().apeYNom() : "GERENTE GENERAL");
     }
 
     /**
      * Datos del empleado
-     * 
+     *
      * @return una cadena como la siguiente : "20351234385 Perez, Juan …………… $
-     *         300000.00"
+     * 300000.00"
      */
     public String mostrarLinea() {
         return this.getCuil() + "  " + this.getApellido() + "," + this.getNombre() + "........$"

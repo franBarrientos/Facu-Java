@@ -1,5 +1,7 @@
 /**
  * Clase ejecutable que testea a la clase Producto junto a la clase Laboratorio
+ * @author Barrientos Franco
+ * @version 1.0
  */
 public class GestionStock {
     /**
@@ -17,10 +19,23 @@ public class GestionStock {
                 InputHelper.insertStringByKeyboard("Ingrese descripcion del producto: "),
                 InputHelper.insertDoubleByKeyboard("Ingrese costo del producto"),
                 laboratorio);
+
+        System.out.println(".".repeat(80));
+        System.out.println("Producto con stock de 500");
+        System.out.println(".".repeat(80));
         producto.ajuste(500);
         producto.mostrar();
-        producto.ajuste(300);
+
+        System.out.println(".".repeat(80));
+        System.out.println("Producto con una baja de 200");
+        System.out.println(".".repeat(80));
+
+        producto.ajuste(-200);
         producto.mostrar();
+
+        System.out.println(".".repeat(80));
+        System.out.println("Metodo to String");
+        System.out.println(".".repeat(80));
         System.out.println(producto.mostrarLinea());
     }
 }

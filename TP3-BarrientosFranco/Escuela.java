@@ -1,5 +1,7 @@
 /**
  * Clase que representa una escuela con su información y métodos relacionados.
+ * @author Barrientos Franco
+ * @version 1.0
  */
 public class Escuela {
     private String nombre;
@@ -19,7 +21,7 @@ public class Escuela {
         this.setDirector(p_director);
     }
 
-    private String getNombre() {
+    public String getNombre() {
         return this.nombre;
     }
 
@@ -27,7 +29,7 @@ public class Escuela {
         this.nombre = p_nombre;
     }
 
-    private String getDomicilio() {
+    public String getDomicilio() {
         return this.domicilio;
     }
 
@@ -35,7 +37,7 @@ public class Escuela {
         this.domicilio = p_domicilio;
     }
 
-    private String getDirector() {
+    public String getDirector() {
         return this.director;
     }
 
@@ -46,9 +48,9 @@ public class Escuela {
     /**
      * Imprime un recibo del docente con los detalles de la escuela y el sueldo del docente.
      *
-     * @param docente Docente para el cual se imprimirá el recibo.
+     * @param p_docente Docente para el cual se imprimirá el recibo.
      */
-    public void imprimirRecibo(Docente docente) {
+    public void imprimirRecibo(Docente p_docente) {
         System.out.println(
             String.format(
                 "Escuela: %s    Domicilio: %s   Director: %s%n",
@@ -59,10 +61,10 @@ public class Escuela {
                     "Sueldo: %s $%.2f.%n" +
                     "Sueldo Basico: %s  $%.2f.%n" +
                     "Asignacion Familiar: %s  $%.2f.%n",
-                    docente.getNombre(),
-                    ".".repeat(10), docente.calcularSueldo(),
-                    ".".repeat(10), docente.getSueldoBasico(),
-                    ".".repeat(10), docente.getAsignacionFamiliar()
+                    p_docente.getNombre(),
+                    ".".repeat(10), p_docente.calcularSueldo(),
+                    ".".repeat(10), p_docente.getSueldoBasico(),
+                    ".".repeat(10), p_docente.getAsignacionFamiliar()
                 ));
     }
 }

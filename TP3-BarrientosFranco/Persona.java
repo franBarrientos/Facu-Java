@@ -96,8 +96,8 @@ public class Persona {
      * @return la edad de la persona en años.
      */
     public int edad() {
-        int year = Calendar.getInstance().get(Calendar.YEAR);
-        return year - this.getAnioNacimiento();
+        int ActualYear = Calendar.getInstance().get(Calendar.YEAR);
+        return ActualYear - this.getAnioNacimiento();
     }
 
     /**

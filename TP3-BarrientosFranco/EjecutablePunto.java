@@ -17,14 +17,30 @@ public class EjecutablePunto {
     Punto punto = new Punto(
         InputHelper.insertDoubleByKeyboard("Ingrese cordenada y: "),
         InputHelper.insertDoubleByKeyboard("Ingrese cordenada x: "));
+
+    System.out.println(".".repeat(80));
+    System.out.println("Primer Punto");
+    System.out.println(".".repeat(80));
     punto.mostrar();
+
+
     punto.desplazar(
-        InputHelper.insertDoubleByKeyboard("Ingrese incremento de la cordenada y: "),
-        InputHelper.insertDoubleByKeyboard("Ingrese incremento de la cordenada x: "));
+        InputHelper.insertDoubleByKeyboard("Ingrese incremento de la cordenada x: "),
+        InputHelper.insertDoubleByKeyboard("Ingrese incremento de la cordenada y: "));
+
+    System.out.println(".".repeat(80));
+    System.out.println("Punto luego de desplazar");
+    System.out.println(".".repeat(80));
     punto.mostrar();
 
     Punto punto2 = new Punto(3, 2);
+    System.out.println(".".repeat(80));
+    System.out.println("Punto 2");
+    System.out.println(".".repeat(80));
     punto2.mostrar();
-    System.out.println(punto.distanciaA(punto2));
+
+    System.out.println(".".repeat(80));
+    System.out.println("Distancia de ambos puntos..."+ punto.distanciaA(punto2));
+    System.out.println(".".repeat(80));
   }
 }

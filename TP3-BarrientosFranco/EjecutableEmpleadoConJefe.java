@@ -1,6 +1,16 @@
 import java.util.Calendar;
-
+/**
+ * Clase ejecutable que testea a las clases EjecutableEmpleadoConJefe.
+ * @author Barrientos Franco
+ * @version 1.0
+ */
 public class EjecutableEmpleadoConJefe {
+
+
+    /**
+     * Se instancian objetos de la EjecutableEmpleadoConJefe, Calendar, y se testea sus metodos y comunicacion atravez de
+     * mensajes
+     */
     public static void main(String[] args) {
 
         Calendar fechaIngresoEmpleado = Calendar.getInstance();

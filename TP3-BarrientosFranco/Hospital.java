@@ -1,5 +1,7 @@
 /**
  * Clase que representa un hospital con su información y director.
+ * @author Barrientos Franco
+ * @version 1.0
  */
 public class Hospital {
     private String nombreHospital;

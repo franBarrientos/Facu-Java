@@ -1,113 +1,135 @@
 /**
  * Clase que representa a Producto
- * * Esta clase modela los datos de un Producto y sus características
+ * Esta clase modela los datos de un Producto y sus características
+ * @author Barrientos Franco
+ * @version 1.0
  */
 public class Producto {
     private int codigo;
-    private String rubro = "";
-    private String descripcion = "";
+    private String rubro;
+    private String descripcion;
     private double costo;
     private int stock;
     private double porcPtoRepo;
     private int existMinima;
     private Laboratorio laboratorio;
 
-    public Producto(int codigo, String rubro, String descripcion, double costo, double porcPtoRepo, int existMinima,
-            Laboratorio Laboratorio) {
-        this.setCodigo(codigo);
-        this.setRubro(rubro);
-        this.setDescripcion(descripcion);
-        this.setCosto(costo);
-        this.setPorcPtoRepo(porcPtoRepo);
-        this.setExistMinima(existMinima);
-        this.setLaboratorio(Laboratorio);
+    /**
+     * Constructor completo de Producto
+     *
+     * @param p_codigo     código del producto
+     * @param p_rubro      rubro del producto
+     * @param p_descripcion descripción del producto
+     * @param p_costo      costo del producto
+     * @param p_porcPtoRepo porcentaje de punto de reposición del producto
+     * @param p_existMinima existencia mínima del producto
+     * @param p_laboratorio laboratorio del producto
+     */
+    public Producto(int p_codigo, String p_rubro, String p_descripcion, double p_costo, double p_porcPtoRepo, int p_existMinima,
+            Laboratorio p_laboratorio) {
+        this.setCodigo(p_codigo);
+        this.setRubro(p_rubro);
+        this.setDescripcion(p_descripcion);
+        this.setCosto(p_costo);
+        this.setPorcPtoRepo(p_porcPtoRepo);
+        this.setExistMinima(p_existMinima);
+        this.setLaboratorio(p_laboratorio);
     }
 
-    public Producto(int codigo, String rubro, String descripcion, double costo, Laboratorio Laboratorio) {
-        this.setCodigo(codigo);
-        this.setRubro(rubro);
-        this.setDescripcion(descripcion);
-        this.setCosto(costo);
-        this.setLaboratorio(Laboratorio);
+    /**
+     * Constructor simplificado de Producto
+     *
+     * @param p_codigo     código del producto
+     * @param p_rubro      rubro del producto
+     * @param p_descripcion descripción del producto
+     * @param p_costo      costo del producto
+     * @param p_laboratorio laboratorio del producto
+     */
+    public Producto(int p_codigo, String p_rubro, String p_descripcion, double p_costo, Laboratorio p_laboratorio) {
+        this.setCodigo(p_codigo);
+        this.setRubro(p_rubro);
+        this.setDescripcion(p_descripcion);
+        this.setCosto(p_costo);
+        this.setLaboratorio(p_laboratorio);
     }
 
-    private int getCodigo() {
+    public int getCodigo() {
         return this.codigo;
     }
 
-    private void setCodigo(int codigo) {
-        this.codigo = codigo;
+    private void setCodigo(int p_codigo) {
+        this.codigo = p_codigo;
     }
 
-    private String getRubro() {
+    public String getRubro() {
         return this.rubro;
     }
 
-    private void setRubro(String rubro) {
-        this.rubro = rubro;
+    private void setRubro(String p_rubro) {
+        this.rubro = p_rubro;
     }
 
-    private String getDescripcion() {
+    public String getDescripcion() {
         return this.descripcion;
     }
 
-    private void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    private void setDescripcion(String p_descripcion) {
+        this.descripcion = p_descripcion;
     }
 
-    private double getCosto() {
+    public double getCosto() {
         return this.costo;
     }
 
-    private void setCosto(double costo) {
-        this.costo = costo;
+    private void setCosto(double p_costo) {
+        this.costo = p_costo;
     }
 
-    private int getStock() {
+    public int getStock() {
         return this.stock;
     }
 
-    private void setStock(int stock) {
-        this.stock = stock;
+    private void setStock(int p_stock) {
+        this.stock = p_stock;
     }
 
-    private double getPorcPtoRepo() {
+    public double getPorcPtoRepo() {
         return this.porcPtoRepo;
     }
 
-    private void setPorcPtoRepo(double porcPtoRepo) {
-        this.porcPtoRepo = porcPtoRepo;
+    private void setPorcPtoRepo(double p_porcPtoRepo) {
+        this.porcPtoRepo = p_porcPtoRepo;
     }
 
-    private int getExistMinima() {
+    public int getExistMinima() {
         return this.existMinima;
     }
 
-    private void setExistMinima(int existMinima) {
-        this.existMinima = existMinima;
+    private void setExistMinima(int p_existMinima) {
+        this.existMinima = p_existMinima;
     }
 
     public Laboratorio getLaboratorio() {
         return this.laboratorio;
     }
 
-    public void setLaboratorio(Laboratorio laboratorio) {
-        this.laboratorio = laboratorio;
+    private void setLaboratorio(Laboratorio p_laboratorio) {
+        this.laboratorio = p_laboratorio;
     }
 
     /**
      * Ajusta la cantidad de stock
-     * 
-     * @param cantidad cantidad a actualizar de stock
+     *
+     * @param p_cantidad cantidad a ajustar de stock
      */
-    public void ajuste(int cantidad) {
-        this.setStock(cantidad);
+    public void ajuste(int p_cantidad) {
+        this.setStock( this.getStock() + p_cantidad);
     }
 
     /**
-     * calcula el precio de lista , valor que resulta de agregar un porcentaje al
+     * Calcula el precio de lista, valor que resulta de agregar un porcentaje al
      * precio de costo
-     * 
+     *
      * @return precio de lista
      */
     public double precioLista() {
@@ -115,24 +137,19 @@ public class Producto {
     }
 
     /**
-     * Calcula el porcentaje pasado como parametro, de un valor pasado como segundo
-     * parametro
-     * 
-     * @param porcentaje porcentaje a calcular
-     * @param valor      valor a sacar el porcentaje
+     * Calcula el porcentaje pasado como parámetro, de un valor pasado como segundo
+     * parámetro
+     *
+     * @param p_porcPorcentaje porcentaje a calcular
+     * @param p_valor          valor a sacar el porcentaje
      * @return valor del porcentaje
      */
-    /*
-     * private double calcularPorcentajeApartirDelUnValor(double porcentaje, double
-     * valor) {
-     * return ((valor * porcentaje) / 100);
-     * }
-     */
+
 
     /**
-     * calcula el precio de contado , valor que resulta de restar un porcentaje al
+     * Calcula el precio de contado, valor que resulta de restar un porcentaje al
      * precio de costo
-     * 
+     *
      * @return precio de lista
      */
     public double precioContado() {
@@ -140,64 +157,60 @@ public class Producto {
     }
 
     /**
-     * calcula el stock valorizado , valor que resulta de multiplicar stock por
-     * valor del producto mas una x rentabilidad
-     * 
+     * Calcula el stock valorizado, valor que resulta de multiplicar stock por valor
+     * del producto más una x rentabilidad
+     *
      * @return precio de lista
      */
     public double stockValorizado() {
-        var stockAPrecioCosto = (this.getCosto() * this.getStock());
+        double stockAPrecioCosto = (this.getCosto() * this.getStock());
         return (stockAPrecioCosto + ((stockAPrecioCosto * 12) / 100));
     }
 
     /**
-     * Ajusta el porcentaje de punto de reposicion
-     * 
-     * @param porcentajePtoReposicion porcentaje de punto reposicion a actualizar
+     * Ajusta el porcentaje de punto de reposición
+     *
+     * @param p_porcPtoReposicion porcentaje de punto reposición a actualizar
      */
-    public void ajustarPtoRepo(double porcentajePtoReposicion) {
-        this.setPorcPtoRepo(porcPtoRepo);
+    public void ajustarPtoRepo(double p_porcPtoReposicion) {
+        this.setPorcPtoRepo(p_porcPtoReposicion);
     }
 
     /**
-     * Ajusta la existencia minima del producto
-     * 
-     * @param existMinima cantidad de existencia minima a actualizar
+     * Ajusta la existencia mínima del producto
+     *
+     * @param p_existMinima cantidad de existencia mínima a actualizar
      */
-    public void ajustarExistMin(int existMinima) {
-        this.setExistMinima(existMinima);
+    public void ajustarExistMin(int p_existMinima) {
+        this.setExistMinima(p_existMinima);
     }
 
     /**
-     * Muestra en consola los datos del pruducto con el siguiente formato
+     * Muestra en consola los datos del producto con el siguiente formato
      * Laboratorio: Colgate S.A.
      * Domicilio: Scalabrini Ortiz 5524 - Teléfono: 54-11 -4239-8447
      * Rubro: Perfumería
      * Descripción: Jabón Deluxe
-     * Precio Costo: 5.25
-     * Stock: 500 - Stock Valorizado: $2940
+     * Precio Costo:  $5.25
+     * Stock: 500 - Stock Valorizado: $2940.00
      */
     public void mostrar() {
-        System.out.println("Laboratorio: " + laboratorio.getNombre());
-        System.out.println("Domicilio: " + laboratorio.getDomicilio() + " - Telefono: " + laboratorio.getTelefono());
+        System.out.println("Laboratorio: " + this.getLaboratorio().getNombre());
+        System.out.println("Domicilio: " + this.getLaboratorio().getDomicilio() + " - Teléfono: " + this.getLaboratorio().getTelefono());
         System.out.println("");
         System.out.println("Rubro: " + this.getRubro());
-        System.out.println("Descripcion :" + this.getDescripcion());
+        System.out.println("Descripción :" + this.getDescripcion());
         System.out.println("Precio Costo:  $" + String.format("%.2f", this.getCosto()));
-        System.out
-                .println("Stock: " + this.getStock() + " - Stock Valorizado: $" + String.format("%.2f", this.stockValorizado()));
+        System.out.println("Stock: " + this.getStock() + " - Stock Valorizado: $" + String.format("%.2f", this.stockValorizado()));
     }
 
     /**
-     * devuelve un String formado por la concatenación de la descripción del
-     * producto, el precio de
-     * lista y el precio de contado, según el siguiente formato:
+     * Devuelve un String formado por la concatenación de la descripción del
+     * producto, el precio de lista y el precio de contado, según el siguiente formato:
      * 
      * @return "Jabón Deluxe 11.20 10.64"
      */
     public String mostrarLinea() {
-        return this.getDescripcion() + " " + String.format("%.2f", this.precioLista()) + " "
-                + String.format("%.2f", this.precioContado());
+        return this.getDescripcion() + " " + String.format("%.2f", this.precioLista()) + " " + String.format("%.2f", this.precioContado());
     }
-
 }

@@ -1,11 +1,13 @@
 /**
  * Esta clase representa una cuenta de caja de ahorro bancaria asociada a una
  * persona titular.
+ * @author Barrientos Franco
+ * @version 1.0
  */
 public class CajaDeAhorro {
     private int nroCuenta;
     private double saldo;
-    private int extraccionesPosibles = 10;
+    private int extraccionesPosibles;
     private Persona titular;
 
     /**
@@ -18,6 +20,7 @@ public class CajaDeAhorro {
     public CajaDeAhorro(int p_nroCuenta, Persona p_titular) {
         this.setNroCuenta(p_nroCuenta);
         this.setTitular(p_titular);
+        this.setExtraccionesPosibles(10);
     }
 
     /**
@@ -32,6 +35,7 @@ public class CajaDeAhorro {
         this.setNroCuenta(p_nroCuenta);
         this.setTitular(p_titular);
         this.setSaldo(p_saldo);
+        this.setExtraccionesPosibles(10);
     }
 
     public int getNroCuenta() {

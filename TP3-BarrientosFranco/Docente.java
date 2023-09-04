@@ -1,5 +1,7 @@
 /**
  * Clase que representa a un docente con su información y cálculo de sueldo.
+ * @author Barrientos Franco
+ * @version 1.0
  */
 public class Docente {
     private String nombre;

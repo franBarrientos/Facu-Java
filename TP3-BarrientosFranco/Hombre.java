@@ -1,5 +1,7 @@
 /**
  * Clase que representa a un hombre con su información personal y estado civil.
+ * @author Barrientos Franco
+ * @version 1.0
  */
 public class Hombre {
     private String nombre;
@@ -36,7 +38,6 @@ public class Hombre {
         this.setApellido(p_apellido);
         this.setEdad(p_edad);
         this.setEstadoCivil("Soltero");
-        this.setEsposa(null);
     }
 
     public String getNombre() {

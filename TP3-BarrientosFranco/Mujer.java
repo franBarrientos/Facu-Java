@@ -1,5 +1,7 @@
 /**
  * Clase que representa a una mujer con su información personal y estado civil.
+ * @author Barrientos Franco
+ * @version 1.0
  */
 public class Mujer {
     private String nombre;
@@ -36,7 +38,6 @@ public class Mujer {
         this.setApellido(p_apellido);
         this.setEdad(p_edad);
         this.setEstadoCivil("Soltera");
-        this.setEsposo(null);
     }
 
     public String getNombre() {
