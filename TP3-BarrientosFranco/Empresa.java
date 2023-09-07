@@ -7,12 +7,12 @@ import java.util.Calendar;
  * @author Barrientos Franco
  * @version 1.0
  */
-public class Empresa {
+public class Empresa implements MenuOption{
 
     /**
      * Instancia un empleado y se imprime un permiso de salida, si corresponde.
      */
-    public static void main(String[] args) {
+    public  void run() {
         Calendar ingreso = Calendar.getInstance();
         ingreso.set(2000, 0, 1);
         Empleado miEmpleado = new Empleado(5456158, "BARRIENTOS", "FRANCO", 200000, ingreso);

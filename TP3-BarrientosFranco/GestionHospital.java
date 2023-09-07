@@ -5,13 +5,13 @@
  * @author Barrientos Franco
  * @version 1.0
  */
-public class GestionHospital {
+public class GestionHospital implements MenuOption{
 
     /**
      * Instancia un hospital, un paciente, con sus correspondientes
      * localidades, y muestra por pantalla los datos filiatorios, utilizando sus métodos.
      */
-    public static void main(String[] args) {
+    public  void run() {
 
         Localidad corrientes = new Localidad("Corrientes Capital", "Corrientes");
 

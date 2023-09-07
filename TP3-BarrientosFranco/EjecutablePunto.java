@@ -5,15 +5,14 @@
  * @author Barriento Franco
  * @version v0.01
  */
-public class EjecutablePunto {
+public class EjecutablePunto implements MenuOption{
 
   /**
    * Ingresa los valores necesarios (usando la clase Helper "InputHelper") para
    * instanciar un objeto Punto, y testea sus metodos publicos de la interfaz
    * 
-   * @param args
    */
-  public static void main(String[] args) {
+  public void run() {
     Punto punto = new Punto(
         InputHelper.insertDoubleByKeyboard("Ingrese cordenada y: "),
         InputHelper.insertDoubleByKeyboard("Ingrese cordenada x: "));

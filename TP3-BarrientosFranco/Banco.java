@@ -8,14 +8,14 @@ import java.util.Calendar;
  * @version 1.0
  */
 
-public class Banco {
+public class Banco implements MenuOption{
     /**
      * Se instancian objetos de las clases Persona, Caja de Ahorro y Cuenta
      * Corriente, luego se testean sus metodos
      * 
      * @param args
      */
-    public static void main(String[] args) {
+    public  void run(){
         Persona franco = new Persona(45645852, "franco", "barrientos", 2004);
         // test Caja de ahorro
         CajaDeAhorro cajaDeAhorroDeFran = new CajaDeAhorro(45661, franco);

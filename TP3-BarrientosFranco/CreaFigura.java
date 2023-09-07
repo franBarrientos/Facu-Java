@@ -6,10 +6,10 @@ import java.util.Random;
  * @author Barrientos Franco
  * @version 1.0
  */
-public class CreaFigura {
+public class CreaFigura implements MenuOption{
     /**
      * Se instancia objetos de la clase Circulo y Rectangulo, y luego se prueban sus metodos*/
-    public static void main(String[] args) {
+    public void run() {
         Circulo circulo = new Circulo(
                 new Random().nextDouble() * 100.0,
                 new Punto());

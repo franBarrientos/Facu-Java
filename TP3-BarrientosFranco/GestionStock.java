@@ -3,7 +3,7 @@
  * @author Barrientos Franco
  * @version 1.0
  */
-public class GestionStock {
+public class GestionStock implements MenuOption{
     /**
      * Test de integracion de la clase Laboratorio y Producto, se instancia
      * laboratorio con valores constantes, y luego se ingrese un producto por
@@ -11,7 +11,7 @@ public class GestionStock {
      * 
      * @param args
      */
-    public static void main(String[] args) {
+    public void run() {
         Laboratorio laboratorio = new Laboratorio("Laboratio Franco S.A", "mexico 22", "37945564", 250000);
         Producto producto = new Producto(
                 InputHelper.insertIntByKeyboard("Ingrese codigo de producto del nuevo producto"),

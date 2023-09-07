@@ -3,12 +3,12 @@
  * @author Barrientos Franco
  * @version 1.0
  */
-public class RegistroCivil {
+public class RegistroCivil implements MenuOption{
 
     /**
      *  Emite el certificado de matrimonio, de un objeto Mujer y Hombre
      * */
-    public static void main(String[] args) {
+    public  void run() {
         Hombre miHombre = new Hombre("FRANCO", "BARRIENTOS", 19);
         Mujer miMujer = new Mujer("CAMILA", "GOMEZ", 20);
         miHombre.casarseCon(miMujer);
