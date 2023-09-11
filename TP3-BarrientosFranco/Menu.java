@@ -11,7 +11,6 @@ import java.util.Map;
 public class Menu {
     /**
      * Método principal que inicia la aplicación y muestra un menú interactivo para seleccionar las opciones.
-     *
      */
     private List<MenuOption> options;
 
@@ -29,7 +28,7 @@ public class Menu {
         Map<Integer, Runnable> actions = new HashMap<>();
         for (int i = 0; i < this.getOptions().size(); i++) {
             int option = i;
-            actions.put(i+1,()-> {
+            actions.put(i + 1, () -> {
                 try {
                     this.getOptions().get(option).run();
                 } catch (IOException e) {
@@ -42,7 +41,7 @@ public class Menu {
         do {
             System.out.println("Seleccione una opción:");
             for (int i = 0; i < this.getOptions().size(); i++) {
-                System.out.println((i+1)+". Trabajo "+(i+1)+" - "+this.getOptions().get(i).getClass().getName());
+                System.out.println((i + 1) + ". Trabajo " + (i + 1) + " - " + this.getOptions().get(i).getClass().getName());
             }
             System.out.println("0. Salir");
             choice = InputHelper.insertIntByKeyboard("Ingrese el número de la opción: ");
@@ -52,8 +51,8 @@ public class Menu {
             if (action != null) {
                 action.run();
                 choice = askToContinue();
-            } else if (choice != 0){
-                    System.out.println("Opción inválida. Intente nuevamente.");
+            } else if (choice != 0) {
+                System.out.println("Opción inválida. Intente nuevamente.");
 
             }
         } while (choice != 0);
@@ -71,15 +70,12 @@ public class Menu {
         this.options = p_options;
     }
 
-    public void addOption(Class<? extends MenuOption> p_option){
+    public void addOption(Class<? extends MenuOption> p_option) {
         try {
             this.getOptions().add(p_option.newInstance());
-        }catch (Exception e){
-            e.printStackTrace();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
-
     }
-
-
 
 }
