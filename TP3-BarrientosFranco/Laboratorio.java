@@ -4,7 +4,7 @@
  * 
  * Esta clase modela los datos de un laboratorio y sus características.
  * 
- * @author Barrientos Franco
+ * @author Barrientos Franco y Cabrera Romani Lucas
  * @version V0.01
  */
 public class Laboratorio {
@@ -18,11 +18,11 @@ public class Laboratorio {
      * Constructor de la clase Laboratorio, instancia un objeto Laboratorio con día
      * de entrega.
      * 
-     * @param p_nombre       Nombre del laboratorio.
-     * @param p_domicilio    Domicilio del laboratorio.
-     * @param p_telefono     Teléfono del laboratorio.
-     * @param p_compraMinima Compra mínima del laboratorio.
-     * @param p_diaEntrega   Día de entrega del laboratorio.
+     * @param p_nombre       nombre del laboratorio.
+     * @param p_domicilio    domicilio del laboratorio.
+     * @param p_telefono     teléfono del laboratorio.
+     * @param p_compraMinima compra mínima del laboratorio.
+     * @param p_diaEntrega   día de entrega del laboratorio.
      */
     public Laboratorio(String p_nombre, String p_domicilio, String p_telefono, int p_compraMinima, int p_diaEntrega) {
         this.setNombre(p_nombre);
@@ -36,23 +36,24 @@ public class Laboratorio {
      * Constructor de la clase Laboratorio, instancia un objeto Laboratorio sin día
      * de entrega.
      * 
-     * @param p_nombre       Nombre del laboratorio.
-     * @param p_domicilio    Domicilio del laboratorio.
-     * @param p_telefono     Teléfono del laboratorio.
-     * @param p_compraMinima Compra mínima del laboratorio.
+     * @param p_nombre       nombre del laboratorio.
+     * @param p_domicilio    domicilio del laboratorio.
+     * @param p_telefono     teléfono del laboratorio.
+     * @param p_compraMinima compra mínima del laboratorio.
      */
     public Laboratorio(String p_nombre, String p_domicilio, String p_telefono, int p_compraMinima) {
         this.setNombre(p_nombre);
         this.setDomicilio(p_domicilio);
         this.setTelefono(p_telefono);
-        this.setCompraMinima(p_compraMinima);
+        this.setCompraMinima(0);
+        this.setDiaEntrega(0);
     }
 
     public String getNombre() {
         return this.nombre;
     }
 
-    public void setNombre(String p_nombre) {
+    private void setNombre(String p_nombre) {
         this.nombre = p_nombre;
     }
 
@@ -60,7 +61,7 @@ public class Laboratorio {
         return this.domicilio;
     }
 
-    public void setDomicilio(String p_domicilio) {
+    private void setDomicilio(String p_domicilio) {
         this.domicilio = p_domicilio;
     }
 
@@ -68,7 +69,7 @@ public class Laboratorio {
         return this.telefono;
     }
 
-    public void setTelefono(String p_telefono) {
+    private void setTelefono(String p_telefono) {
         this.telefono = p_telefono;
     }
 
@@ -76,7 +77,7 @@ public class Laboratorio {
         return this.compraMinima;
     }
 
-    public void setCompraMinima(int p_compraMinima) {
+    private void setCompraMinima(int p_compraMinima) {
         this.compraMinima = p_compraMinima;
     }
 
@@ -84,8 +85,24 @@ public class Laboratorio {
         return this.diaEntrega;
     }
 
-    public void setDiaEntrega(int p_diaEntrega) {
+    private void setDiaEntrega(int p_diaEntrega) {
         this.diaEntrega = p_diaEntrega;
+    }
+
+    /**
+     * metodo que actualiza la compra minima con el parametro real p_compraminma.
+     * @param p_compraMin nueva compra minima
+     */
+    public void nuevaCompraMinima(int p_compraMin) {
+        this.setCompraMinima(p_compraMin);
+    }
+
+    /**
+     * metodo que actualiza la dia de entrega con el parametro real p_diaEnt
+     * @param p_diaEnt nuevo dia de entrega
+     */
+    public void nuevoDiaEntrega(int p_diaEnt) {
+        this.setDiaEntrega(p_diaEnt);
     }
 
     /**

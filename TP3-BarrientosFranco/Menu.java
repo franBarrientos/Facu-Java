@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -28,7 +29,13 @@ public class Menu {
         Map<Integer, Runnable> actions = new HashMap<>();
         for (int i = 0; i < this.getOptions().size(); i++) {
             int option = i;
-            actions.put(i+1,()->this.getOptions().get(option).run());
+            actions.put(i+1,()-> {
+                try {
+                    this.getOptions().get(option).run();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            });
         }
 
         //ejecuto el do while , mientras no se escoja 0
