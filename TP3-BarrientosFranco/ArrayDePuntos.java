@@ -6,6 +6,7 @@ public class ArrayDePuntos implements MenuOption {
 
     @Override
     public void run() {
+        System.out.println("A continuacion ingrese 6 Puntos ");
         Punto[] puntos = new Punto[6];
 
         for (int i = 0; i < puntos.length; i++) {

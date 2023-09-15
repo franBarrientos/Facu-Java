@@ -1,5 +1,7 @@
 
 
+import java.lang.reflect.Constructor;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Scanner;
 
@@ -23,7 +25,7 @@ public class InputHelper {
      */
     public static String insertStringByKeyboard(String message) {
         System.out.println(message);
-        return scanner.next();
+        return scanner.nextLine();
     }
 
     /**
@@ -69,4 +71,8 @@ public class InputHelper {
         );
         return calendar;
     }
+
+
+
+
 }
