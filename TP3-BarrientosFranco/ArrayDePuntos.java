@@ -1,9 +1,19 @@
+/**
+ * Clase Ejecutable de Punto
+ *
+ * @author Barrientos Franco
+ * @version 1.0
+ */
 public class ArrayDePuntos implements MenuOption {
 
     public static void main(String[] args) {
         new ArrayDePuntos().run();
     }
 
+    /**
+     * Se declara un arreglo estatico de Punto, y
+     * luego se insertan por teclado sus valores, para luego testear su interfaz
+     * */
     @Override
     public void run() {
         System.out.println("A continuacion ingrese 6 Puntos ");
@@ -24,8 +34,8 @@ public class ArrayDePuntos implements MenuOption {
 
     private Punto createPuntoByKeyboard() {
         return new Punto(
-                InputHelper.insertDoubleByKeyboard("Ingrese la cordenada y: "),
-                InputHelper.insertDoubleByKeyboard("Ingrese la cordenada x: ")
+                InputHelper.scanDoubleByKeyboardAndPrint("Ingrese la cordenada y: "),
+                InputHelper.scanDoubleByKeyboardAndPrint("Ingrese la cordenada x: ")
         );
     }
 }

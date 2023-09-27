@@ -3,6 +3,6 @@ import java.io.IOException;
 
 public interface MenuOption {
 
-    void run() throws IOException;
+    void run();
 
 }

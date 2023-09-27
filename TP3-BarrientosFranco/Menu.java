@@ -7,6 +7,8 @@ import java.util.Map;
 /**
  * Clase principal que sirve como entry point para el programa. Permite al usuario seleccionar
  * diferentes opciones para ejecutar los trabajos correspondientes.
+ * @author Barrientos Franco
+ * @version 1.0
  */
 public class Menu {
     /**
@@ -44,7 +46,7 @@ public class Menu {
                 System.out.println((i + 1) + ". Trabajo " + (i + 1) + " - " + this.getOptions().get(i).getClass().getName());
             }
             System.out.println("0. Salir");
-            choice = InputHelper.insertIntByKeyboard("Ingrese el número de la opción: ");
+            choice = InputHelper.scanIntByKeyboardAndPrint("Ingrese el número de la opción: ");
 
 
             Runnable action = actions.get(choice);
@@ -59,7 +61,7 @@ public class Menu {
     }
 
     public static int askToContinue() {
-        return InputHelper.insertIntByKeyboard("Ingrese 1 si desea continuar o 0 si desea salir....");
+        return InputHelper.scanIntByKeyboardAndPrint("Ingrese 1 si desea continuar o 0 si desea salir....");
     }
 
     private List<MenuOption> getOptions() {
