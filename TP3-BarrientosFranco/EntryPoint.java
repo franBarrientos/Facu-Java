@@ -11,11 +11,10 @@ public class EntryPoint {
      * */
     public static void main(String[] args)   {
         Menu miMenu = new Menu();
-        miMenu.addOption(ArrayDePuntos.class);
-        miMenu.addOption(TomaPedido.class);
-        miMenu.addOption(AplicacionBanco.class);
-        miMenu.addOption(Carrera.class);
-        miMenu.addOption(GestionComercio.class);
+        miMenu.addOption(Escuela.class);
+        miMenu.addOption(EjecutibleEmpresa.class);
+        miMenu.addOption(EjecutableFormasGeometricas.class);
+        miMenu.addOption(EjecutableElipse.class);
         miMenu.start();
 
     }

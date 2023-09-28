@@ -1,3 +1,5 @@
+import java.util.Calendar;
+
 /**
  * Clase que representa a un alumno observado desde lo academico, con sus datos
  * personales y calificaciones.
@@ -5,10 +7,8 @@
  * @author Barrientos Franco y Cabrera Romani Lucas
  * @version v0.01
  */
-public class Alumno {
+public class Alumno extends Persona{
     private int lu;
-    private String nombre;
-    private String apellido;
     private double nota1;
     private double nota2;
 
@@ -19,10 +19,10 @@ public class Alumno {
      * @param p_nombre   nombre del alumno
      * @param p_apellido apellido del alumno
      */
-    public Alumno(int p_lu, String p_nombre, String p_apellido) {
+    public Alumno(int p_lu, String p_nombre, String p_apellido,
+                  int p_nroDni, Calendar p_fechaNacimiento) {
+        super(p_nroDni, p_nombre, p_apellido, p_fechaNacimiento);
         this.setLu(p_lu);
-        this.setNombre(p_nombre);
-        this.setApellido(p_apellido);
     }
 
     public int getLu() {
@@ -31,22 +31,6 @@ public class Alumno {
 
     private void setLu(int p_lu) {
         this.lu = p_lu;
-    }
-
-    public String getNombre() {
-        return this.nombre;
-    }
-
-    private void setNombre(String p_nombre) {
-        this.nombre = p_nombre;
-    }
-
-    public String getApellido() {
-        return this.apellido;
-    }
-
-    private void setApellido(String p_apellido) {
-        this.apellido = p_apellido;
     }
 
     public double getNota1() {
@@ -119,7 +103,7 @@ public class Alumno {
      * </blockquote>
      */
     public void mostrar() {
-        System.out.println("Nombre y Apellido: " + this.nomYApe());
+        super.mostrar();
         System.out.println("LU: "+this.getLu()+" Notas: " + this.getNota1() + "-" + this.getNota2());
         System.out.println("Promedio: " + this.promedio() + " - " + this.leyendaAprueba());
     }

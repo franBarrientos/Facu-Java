@@ -7,10 +7,8 @@ import java.util.Calendar;
  * @author Barrientos Franco y Cabrera Romani Lucas
  * @version V0.01
  */
-public class Empleado {
+public class Empleado extends Persona {
     private long cuil;
-    private String apellido;
-    private String nombre;
     private double sueldoBasico;
     private Calendar fechaIngreso;
 
@@ -23,10 +21,10 @@ public class Empleado {
      * @param p_sueldoBasico sueldo basico del empleado
      * @param p_anioIngreso  año de ingreso del empleado
      */
-    public Empleado(long p_cuil, String p_apellido, String p_nombre, double p_sueldoBasico, int p_anioIngreso) {
+    public Empleado(long p_cuil, String p_apellido, String p_nombre,
+                    double p_sueldoBasico, int p_anioIngreso ,int p_anioNacimiento, int p_nroDni) {
+        super(p_nroDni, p_nombre, p_apellido, p_anioNacimiento);
         this.setCuil(p_cuil);
-        this.setApellido(p_apellido);
-        this.setNombre(p_nombre);
         this.setSueldoBasico(p_sueldoBasico);
         this.setAnioIngreso(p_anioIngreso);
     }
@@ -40,10 +38,11 @@ public class Empleado {
      * @param p_sueldoBasico sueldo basico del empleado
      * @param p_fechaIngreso fecha de ingreso del empleado
      */
-    public Empleado(long p_cuil, String p_apellido, String p_nombre, double p_sueldoBasico, Calendar p_fechaIngreso) {
+    public Empleado(long p_cuil, String p_apellido, String p_nombre,
+                    double p_sueldoBasico, Calendar p_fechaIngreso,
+                    int p_nroDni, Calendar p_anoNacimiento) {
+        super(p_nroDni, p_nombre, p_apellido, p_anoNacimiento);
         this.setCuil(p_cuil);
-        this.setApellido(p_apellido);
-        this.setNombre(p_nombre);
         this.setSueldoBasico(p_sueldoBasico);
         this.setFechaIngreso(p_fechaIngreso);
     }
@@ -54,22 +53,6 @@ public class Empleado {
 
     private void setCuil(long p_cuil) {
         this.cuil = p_cuil;
-    }
-
-    public String getApellido() {
-        return this.apellido;
-    }
-
-    private void setApellido(String p_apellido) {
-        this.apellido = p_apellido;
-    }
-
-    public String getNombre() {
-        return this.nombre;
-    }
-
-    private void setNombre(String p_nombre) {
-        this.nombre = p_nombre;
     }
 
     public double getSueldoBasico() {
@@ -160,7 +143,7 @@ public class Empleado {
      * </blockquote>
      */
     public void mostrar() {
-        System.out.println("Nombre y Apellido: " + this.nomYApe());
+        super.mostrar();
         System.out.println("CUIL : " + this.getCuil() + " Antigüedad: " + this.antiguedad() + " años de servicio");
         System.out.println("Sueldo Neto: $" + String.format("%.2f", this.sueldoNeto()));
     }

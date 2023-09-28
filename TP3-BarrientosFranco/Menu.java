@@ -31,11 +31,7 @@ public class Menu {
         for (int i = 0; i < this.getOptions().size(); i++) {
             int option = i;
             actions.put(i + 1, () -> {
-                try {
-                    this.getOptions().get(option).run();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+                this.getOptions().get(option).run();
             });
         }
 
