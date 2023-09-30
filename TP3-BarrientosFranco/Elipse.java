@@ -1,8 +1,6 @@
-public class Elipse {
+public class Elipse extends FiguraGeometrica{
     private double sEjeMayor;
     private double sEjeMenor;
-    private Punto centro;
-
     public Elipse(double p_sEjeMayor, double p_sEjeMenor, Punto p_centro){
         this.setsEjeMayor(p_sEjeMayor);
         this.setsEjeMenor(p_sEjeMenor);
@@ -26,15 +24,22 @@ public class Elipse {
     }
 
     public Punto getCentro() {
-        return centro;
+        return this.origen;
     }
 
     private void setCentro(Punto p_centro) {
-        centro = p_centro;
+        this.origen = p_centro;
     }
 
+    @Override
     public String nombreFigura(){
         return "****** Elipse ******";
+    }
+
+    @Override
+    public void mostrarSuperficie() {
+        System.out.println(this.nombreFigura());
+        System.out.println("Superficie: "+this.superficie());
     }
 
     public void caracteristicas(){
@@ -45,7 +50,7 @@ public class Elipse {
         System.out.println("Superficie "+this.superficie());
 
     }
-
+    @Override
     public double superficie(){
         return Math.PI * this.getsEjeMayor() * this.getsEjeMenor();
     }

@@ -3,8 +3,7 @@
  * @author Barrientos Franco
  * @version 1.0
  */
-public class Rectangulo {
-    private Punto origen;
+public class Rectangulo extends FiguraGeometrica{
     private double ancho;
     private double alto;
 
@@ -68,6 +67,7 @@ public class Rectangulo {
      *
      * @return el área
      */
+    @Override
     public double superficie() {
         return this.getAlto() * this.getAncho();
     }
@@ -106,8 +106,15 @@ public class Rectangulo {
                 p_otroRectangulo;
     }
 
+    @Override
     public String nombreFigura(){
         return "***** Rectangulo *****";
+    }
+
+    @Override
+    public void mostrarSuperficie() {
+        System.out.println(this.nombreFigura());
+        System.out.println("Superficie: "+this.superficie());
     }
 
 }
