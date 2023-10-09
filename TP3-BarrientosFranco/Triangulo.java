@@ -4,16 +4,9 @@ public class Triangulo extends FiguraGeometrica{
     private double altura;
 
     public Triangulo(double p_base, double p_altura, Punto p_origen ) {
+        super(p_origen);
         this.setBase(p_base);
         this.setAltura(p_altura);
-        this.setOrigen(p_origen);
-    }
-    public Punto getOrigen() {
-        return this.origen;
-    }
-
-    private void setOrigen(Punto p_origen) {
-        this.origen = p_origen;
     }
 
     public double getBase() {
@@ -42,9 +35,4 @@ public class Triangulo extends FiguraGeometrica{
         return "****** Triángulo ******";
     }
 
-    @Override
-    public void mostrarSuperficie() {
-        System.out.println(this.nombreFigura());
-        System.out.println("Superficie: "+this.superficie());
-    }
 }
