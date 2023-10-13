@@ -8,24 +8,17 @@ public class Rectangulo extends FiguraGeometrica{
     private double alto;
 
     public Rectangulo(double p_ancho, double p_alto) {
+        super(new Punto());
         this.setAncho(p_ancho);
         this.setAlto(p_alto);
-        this.setOrigen(new Punto());
     }
 
     public Rectangulo(Punto p_origen, double p_ancho, double p_alto) {
-        this.setOrigen(p_origen);
+        super(p_origen);
         this.setAncho(p_ancho);
         this.setAlto(p_alto);
     }
 
-    public Punto getOrigen() {
-        return this.origen;
-    }
-
-    private void setOrigen(Punto p_origen) {
-        this.origen = p_origen;
-    }
 
     public double getAncho() {
         return this.ancho;

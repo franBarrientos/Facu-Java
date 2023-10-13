@@ -30,7 +30,7 @@ public class Exclusivo extends Cargo {
     public void mostrarCargo(){
         super.mostrarCargo();
         System.out.println("----Cargo de caracter Exclusivo----\n" +
-                "Horas investigación: "+ this.getHorasDeInvestigacion()+
-                "Horas de extension: "+ this.getHorasDeExtension());
+                "Horas investigacion: "+ this.getHorasDeInvestigacion()+
+                "\nHoras de extension: "+ this.getHorasDeExtension());
     }
 }
