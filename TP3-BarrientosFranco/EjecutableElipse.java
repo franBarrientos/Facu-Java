@@ -12,5 +12,9 @@ public class EjecutableElipse implements MenuOption {
         miCirculo.caracteristicas();
         System.out.println("Distancia :"+
         miElipse.distanciaA(miCirculo));
+
+/*
+        Integer i = new String("da");
+*/
     }
 }

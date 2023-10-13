@@ -16,6 +16,7 @@ public class EntryPoint {
         miMenu.addOption(EjecutableFormasGeometricas.class);
         miMenu.addOption(EjecutableElipse.class);
         miMenu.addOption(Administracion.class);
+        miMenu.addOption(AdministracionGerencia.class);
         miMenu.start();
 
     }
